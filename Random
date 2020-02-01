@@ -1,0 +1,207 @@
+#include <cstdlib>
+matriz[i][j] = (1+rand()%50);
+
+
+
+#include <stdio.h> 
+#include<iostream> 
+
+using namespace std;
+int pot(int,int);
+int coc(int, int);
+void printa(int *,int);
+void imprimeMatriz(int **, int, int);
+
+int main(){ 
+  //arreglos 
+  int *p=new int[3];
+  p[0]=2;
+  p[1]=4;
+  p[2]=6;
+  cout<<"Arreglos"<<endl;
+  printa(p,0);//recursivo
+  
+  //matrices
+  int **m=new int*[2];
+  m[0]=new int[3];
+  m[1]=new int[3];
+  //llenar matriz
+  for(int i=0;i<=sizeof(m)/sizeof(m[0]); i++){
+  	for(int j=0;j<=sizeof(m[0])/sizeof(int); j++){
+      m[i][j]=2+i+j;		
+	}
+  }
+  cout<<"Matrices"<<endl;
+  imprimeMatriz(m, 0, 0);//recursivo
+  
+  system("pause");
+ return 0;
+}
+
+void printa(int *a,int p){
+	if( p==sizeof(a)/sizeof(int)/*tamaño arreglo*/ ){
+		cout<<a[p]<<endl;
+	}else{
+		cout<<a[p]<<endl;
+		printa(a,p+1);
+	}
+}
+
+void imprimeMatriz(int **matriz, int filas, int cols) {
+        if (filas == sizeof(matriz)/sizeof(matriz[0]) /*tamaño filas*/
+		     && cols == sizeof(matriz[0])/sizeof(int) /*tamaño columnas*/    
+		) {
+            cout<<matriz[filas][cols]<<"   "<<endl;            
+        } else {
+            if (cols == sizeof(matriz[0])/sizeof(int) ) {   
+                cout<<matriz[filas][cols]<<endl; 
+                imprimeMatriz(matriz, filas+1, 0);
+            } else {
+            	cout<<matriz[filas][cols]<<"   "; 
+                imprimeMatriz(matriz, filas, cols+1);
+            }
+        }       
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public static int potencia(int b, int e){
+        if (e==0) {
+            return 1;
+        } else {
+            return b*potencia(b,e-1);
+        }  
+    }
+
+public static int fib(int p){
+        if (p==0 || p==1) {
+            return 1;
+        } else {
+            return fib(p-1)+fib(p-2);
+        }
+    }
+
+public static int mult(int a,int b){
+        if (b==1) {
+            return a;
+        } else {
+            return a+mult(a,b-1);
+        }   
+    }
+
+public static int div(int d1,int d2){
+        if (d1<d2) {
+            System.out.println(d1);
+            return 0;
+        } else {
+            return 1+div(d1-d2,d2);
+        }
+    }
+
+public static void imprimeArr(int [] a, int p){
+        if (p==a.length-1) {
+            System.out.println(a[p]);            
+        } else {
+            System.out.println(a[p]);
+            imprimeArr(a, p+1);
+        }
+    }
+    
+public static int sumaArr(int [] a, int p){
+        if (p==a.length-1) {
+            return a[p];            
+        } else {
+            return a[p] +sumaArr(a, p+1);
+        }
+    }
+    
+public static int Maximo(int [] a, int p) {
+   int max;
+    if (p==a.length-1) {       
+           return a[p];       
+    } else {
+        max=Maximo(a, p+1) ;
+        if (a[p]>max) {
+            return a[p];
+        } else {
+            return max;
+        }        
+    }
+}
+
+public static void imprimeMatriz(int matriz[][], int filas, int cols) {
+        if (filas == matriz.length - 1 && cols == matriz[0].length - 1) {
+            System.out.print( matriz[filas][cols] +"   ");            
+        } else {
+            if (cols == matriz[0].length-1) {   
+                System.out.println( matriz[filas][cols] ); 
+                imprimeMatriz(matriz, filas+1, 0);
+            } else {
+                System.out.print( matriz[filas][cols] +"   "); 
+                imprimeMatriz(matriz, filas, cols+1);
+            }
+        }       
+    }
+
+public static int sumaMatriz(int matriz[][], int filas, int cols) {
+        if (filas == matriz.length - 1 && cols == matriz[0].length - 1) {
+            return matriz[filas][cols];            
+        } else {
+            if (cols == matriz[0].length-1) {   
+                return matriz[filas][cols] +sumaMatriz(matriz, filas+1, 0);
+            } else {
+                return matriz[filas][cols] + sumaMatriz(matriz, filas, cols+1);
+            }
+        }       
+    }
+
+public static int sumaPares(int matriz[][], int filas, int cols) {
+        if (filas == matriz.length - 1 && cols == matriz[0].length - 1) {
+            return matriz[filas][cols]%2==0?matriz[filas][cols]:0;
+        } else {
+            if (cols == matriz[0].length-1) {                
+                return (matriz[filas][cols]%2==0?matriz[filas][cols]:0) + sumaPares(matriz, filas+1, 0);
+            } else {
+                return (matriz[filas][cols]%2==0?matriz[filas][cols]:0) + sumaPares(matriz, filas, cols+1);
+            }
+        }       
+    }
